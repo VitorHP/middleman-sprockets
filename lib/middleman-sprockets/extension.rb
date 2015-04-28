@@ -1,22 +1,9 @@
 require "sprockets"
-require "sprockets-sass"
 require "middleman-sprockets/asset"
 require "middleman-sprockets/imported_asset"
 require "middleman-sprockets/config_only_environment"
 require "middleman-sprockets/environment"
 require "middleman-sprockets/asset_tag_helpers"
-
-class Sprockets::Sass::SassTemplate
-  # Get the default, global Sass options. Start with Compass's
-  # options, if it's available.
-  def default_sass_options
-    if defined?(Compass) && defined?(Compass.configuration)
-      merge_sass_options Compass.configuration.to_sass_engine_options.dup, Sprockets::Sass.options
-    else
-      Sprockets::Sass.options.dup
-    end
-  end
-end
 
 # Sprockets extension
 module Middleman
